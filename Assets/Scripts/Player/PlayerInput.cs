@@ -1,16 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMover))]
-[RequireComponent(typeof(Animator))]
 public class PlayerInput : MonoBehaviour
 {
     private PlayerMover _playerMover;
-    private Animator _animator;
-    
+
     private void Start()
     {
         _playerMover = GetComponent<PlayerMover>();
-        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -27,7 +24,5 @@ public class PlayerInput : MonoBehaviour
             _playerMover.Move(horizontal);
             _playerMover.TryFlip(horizontal);
         }
-
-        _animator.SetFloat("Speed", Mathf.Abs(horizontal));
     }
 }

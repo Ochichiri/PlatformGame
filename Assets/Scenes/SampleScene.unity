@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 127134539}
   - component: {fileID: 127134543}
   - component: {fileID: 127134542}
+  - component: {fileID: 127134544}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -563,6 +564,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gemCounterText: {fileID: 953773659}
+--- !u!114 &127134544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127134533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b538f392b9d284688f2b5544322bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165282919
 GameObject:
   m_ObjectHideFlags: 0
