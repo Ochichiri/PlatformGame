@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 11399299}
   - component: {fileID: 11399298}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -378,7 +378,9 @@ GameObject:
   - component: {fileID: 127134543}
   - component: {fileID: 127134542}
   - component: {fileID: 127134544}
-  m_Layer: 0
+  - component: {fileID: 127134545}
+  - component: {fileID: 127134546}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +490,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 2
   m_Material: {fileID: 0}
@@ -521,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _jumpForce: 12
+  _jumpForce: 15
   _groundConnection: {fileID: 1470018728}
 --- !u!70 &127134541
 CapsuleCollider2D:
@@ -551,6 +553,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1d3561f14ebaa54f89e71bc663424da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _damage: 10
+  _punchStrength: 400
 --- !u!114 &127134543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,6 +579,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89b538f392b9d284688f2b5544322bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &127134545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127134533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5854250e8df8b8c419b86967c4efce83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &127134546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 127134533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ff609863fb45745ac9bca2a8ce8c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &165282919
@@ -633,6 +662,9 @@ GameObject:
   - component: {fileID: 215772158}
   - component: {fileID: 215772157}
   - component: {fileID: 215772156}
+  - component: {fileID: 215772160}
+  - component: {fileID: 215772159}
+  - component: {fileID: 215772161}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -670,6 +702,9 @@ MonoBehaviour:
   _points:
   - {fileID: 978597804}
   - {fileID: 1644499987}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &215772157
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -748,6 +783,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &215772159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215772154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff5c07645e7744bf6e7ff02ea726b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _damage: 10
+  _punchStrength: 0
+--- !u!114 &215772160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215772154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5854250e8df8b8c419b86967c4efce83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &215772161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215772154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ff609863fb45745ac9bca2a8ce8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &273073149
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +868,7 @@ GameObject:
   - component: {fileID: 335774508}
   - component: {fileID: 335774507}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Island
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1293,6 +1367,10 @@ GameObject:
   - component: {fileID: 1041307138}
   - component: {fileID: 1041307137}
   - component: {fileID: 1041307136}
+  - component: {fileID: 1041307140}
+  - component: {fileID: 1041307139}
+  - component: {fileID: 1041307141}
+  - component: {fileID: 1041307142}
   m_Layer: 0
   m_Name: EnemyBody
   m_TagString: Untagged
@@ -1330,6 +1408,9 @@ MonoBehaviour:
   _points:
   - {fileID: 654302944}
   - {fileID: 1574300820}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &1041307137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1408,6 +1489,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1041307139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041307134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9ff5c07645e7744bf6e7ff02ea726b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _damage: 10
+  _punchStrength: 400
+--- !u!114 &1041307140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041307134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5854250e8df8b8c419b86967c4efce83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1041307141
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041307134}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1041307142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041307134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ff609863fb45745ac9bca2a8ce8c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328626084
 GameObject:
   m_ObjectHideFlags: 0
@@ -3754,6 +3895,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2213600735437356084, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: _damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213600735437356084, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: _maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2726542467183290186, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3801,6 +3950,14 @@ PrefabInstance:
     - target: {fileID: 2726542467183290187, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726542467183290187, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726542467292820162, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 2726542467292820163, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
       propertyPath: m_LocalPosition.x

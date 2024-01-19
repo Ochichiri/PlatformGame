@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerUI))]
-public class Player : MonoBehaviour
+public class Player : Creature
 {
     private int _gemCounter;
     private PlayerUI _playerUI;
