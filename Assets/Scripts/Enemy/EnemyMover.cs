@@ -13,19 +13,17 @@ public class EnemyMover : MonoBehaviour
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
-        Flip(_points[_currentPoint]);
     }
 
     private void FixedUpdate()
     {
         if (TryFindPlayer(out Vector3 player))
         {
-            MoveToPlyaer(player);
+            MoveToPlyer(player);
         }
         else
         {
-            MoveToPoints();
+            MoveToPoints(); 
         }
     }
 
@@ -45,20 +43,21 @@ public class EnemyMover : MonoBehaviour
             {
                 _currentPoint = 0;
             }
-
-            Flip(_points[_currentPoint]);
         }
+
+        Flip(_points[_currentPoint].position);
     }
 
-    private void MoveToPlyaer(Vector3 playerPosition)
+    private void MoveToPlyer(Vector3 playerPosition)
     {
         Vector3 target = new Vector3(playerPosition.x, transform.position.y);
         transform.position = Vector3.MoveTowards(transform.position, target, _speed * Time.fixedDeltaTime);
+        Flip(playerPosition);
     }
 
-    public void Flip(Transform target)
+    public void Flip(Vector3 target)
     {
-        float horizontalDirection = target.position.x - transform.position.x;
+        float horizontalDirection = target.x - transform.position.x;
         if (horizontalDirection < 0)
         {
             _spriteRenderer.flipX = true;
@@ -71,13 +70,15 @@ public class EnemyMover : MonoBehaviour
 
     private bool TryFindPlayer(out Vector3 playerPosition)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector3.left), 10f, _layerMask);
+        float rayDistance = 20f;
+        Vector3 originOfRay = new Vector3(transform.position.x - rayDistance/2, transform.position.y, transform.position.z);
+
+        RaycastHit2D hit = Physics2D.Raycast(originOfRay, transform.TransformDirection(Vector3.left), rayDistance, _layerMask);
 
         if (hit.collider != null)
         {
             if (hit.collider.gameObject.TryGetComponent(out Player player))
             {
-                Debug.Log(gameObject.transform.parent.name);
                 playerPosition = hit.collider.transform.position;
                 return true;
             }

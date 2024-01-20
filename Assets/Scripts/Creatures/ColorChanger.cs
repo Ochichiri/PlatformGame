@@ -21,7 +21,7 @@ public class ColorChanger : MonoBehaviour
 
     private IEnumerator Change(Color color)
     {
-        float halfColorValue = 0.5f;
+        float halfColorValue = 0.3f;
         float currentTime = halfColorValue;
         float maxColorValue = 1f;
 

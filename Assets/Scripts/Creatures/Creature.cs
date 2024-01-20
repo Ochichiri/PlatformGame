@@ -39,4 +39,12 @@ public class Creature : MonoBehaviour
     {
         creature.GetDamage(_damage, transform.position);
     }
+
+    public void Heal(int heal)
+    {
+        if (heal > 0)
+        {
+            _currentHealth += heal;
+        }
+    }
 }
