@@ -1,15 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerUI))]
+[RequireComponent(typeof(PlayerUIChanger))]
 public class Player : Creature
 {
     private int _gemCounter;
-    private PlayerUI _playerUI;
+    private PlayerUIChanger _playerUI;
 
     private void Start()
     {
         _gemCounter = 0;
-        _playerUI = GetComponent<PlayerUI>();
+        _playerUI = GetComponent<PlayerUIChanger>();
     }
 
     public void AddGem()

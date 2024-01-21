@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Health))]
-public class PlayerUI : MonoBehaviour
+public class PlayerUIChanger : MonoBehaviour
 {
     [SerializeField] private TMP_Text _gemCounterText;
     [SerializeField] private TMP_Text _healthText;
