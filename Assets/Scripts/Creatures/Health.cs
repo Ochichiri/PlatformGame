@@ -30,6 +30,11 @@ public class Health : MonoBehaviour
         }
 
         HealthChanged?.Invoke(CurrentHealth, _maxHealth);
+
+        if (CurrentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Heal(int heal)
