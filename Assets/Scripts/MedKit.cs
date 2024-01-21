@@ -6,9 +6,10 @@ public class MedKit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.GetComponent<Player>() &&
+            collision.TryGetComponent(out Health health))
         {
-            player.Heal(_heal);
+            health.Heal(_heal);
             Destroy(gameObject);
         }
     }

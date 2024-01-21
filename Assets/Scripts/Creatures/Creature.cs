@@ -2,34 +2,31 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CreatureCollider))]
+[RequireComponent(typeof(Health))]
 [RequireComponent(typeof(ColorChanger))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class Creature : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth;
     [SerializeField] private int _damage;
     [SerializeField] private int _punchStrength;
 
-    private int _currentHealth;
     private ColorChanger _colorChanger;
+    private Health _health;
 
     private void Awake()
     {
-        _currentHealth = _maxHealth;
         _colorChanger = GetComponent<ColorChanger>();
+        _health = GetComponent<Health>();
     }
 
-    public void GetDamage(int damage, Vector3 collisionPosition)
+    public void GetDamage(int damage, Vector3 collisionPosition, int punchStrength)
     {
-        if (damage > 0)
-        {
-            _currentHealth -= damage;
-        }
+        _health.GetDamage(damage);
 
         if (gameObject.TryGetComponent(out Rigidbody2D rigidbody))
         {
             rigidbody.velocity = Vector2.zero;
-            rigidbody.AddForce((transform.position - collisionPosition) * _punchStrength, ForceMode2D.Force);
+            rigidbody.AddForce((transform.position - collisionPosition) * punchStrength, ForceMode2D.Force);
         }
 
         _colorChanger.ChangeColor(Color.red);
@@ -37,14 +34,6 @@ public class Creature : MonoBehaviour
 
     public void Attack(Creature creature)
     {
-        creature.GetDamage(_damage, transform.position);
-    }
-
-    public void Heal(int heal)
-    {
-        if (heal > 0)
-        {
-            _currentHealth += heal;
-        }
+        creature.GetDamage(_damage, transform.position, _punchStrength);
     }
 }
