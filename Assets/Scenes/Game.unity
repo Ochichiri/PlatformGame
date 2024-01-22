@@ -1698,10 +1698,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2726542467241920120, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2726542468699700201, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3896434770236532654, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8447333291922076619, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447333291922076619, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006c43d314c260744908b319cc7a1b56, type: 3}
 --- !u!1 &1328626084
